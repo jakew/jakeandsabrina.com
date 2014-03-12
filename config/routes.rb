@@ -1,7 +1,9 @@
 Jakeandsabrina::Application.routes.draw do
+  resources :song_requests
+
   resources :rsvps
-  
-  root "rsvps#index"
+
+  root "rsvps#new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

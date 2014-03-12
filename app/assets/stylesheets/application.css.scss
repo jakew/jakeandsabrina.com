@@ -1,0 +1,146 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap.min
+ *= require_self
+ *= require_tree .
+ */
+
+.field_with_errors {
+  @extend .control-group.error
+}
+
+
+/* Colours */
+$light_purple: #E0BBFC;
+$dark_purple: #361C80;
+$light_grey: #f8f8f8;
+
+/* Other vars */
+$opacity: 0.95;
+
+#map-canvas {
+  height: 300px;
+}
+
+/* Font */
+body, h1, h2, h3, h4, h5 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+
+/* Entire Document */
+body {
+   background: url('greyfloral_@2X.png');
+   background-attachment:fixed;
+}
+
+
+/* Alternating row colours */
+.full {
+  padding: 30px 10px;
+  width: 100%;
+}
+
+.full:nth-child(odd){
+//  background-color: $light_purple;
+  background: rgba(229, 187, 252, 0.5);
+}
+
+.rsvp {
+  @extend .full;
+  background-color: grey;
+}
+
+
+
+/* Max width of 800, but stretchy. */
+.wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper small {
+  font-style:italic;
+}
+
+.wrapper p {
+  text-indent: 1.5em;
+}
+
+/* FIX THIS SHIT */
+address {
+  display: inline;
+  text-align:left;
+}
+
+
+/* Heading related */
+.jumbotron {
+  text-align: center;
+
+  background-color: $light_grey;
+  margin-bottom: 0;
+
+  color: $dark_purple;
+  opacity: $opacity;
+}
+
+nav {
+  opacity: $opacity;
+}
+
+.navbar-brand {
+  font-size: inherit;
+}
+
+.navbar-default {
+  border-color: $dark_purple;
+}
+
+
+
+/* Navbar's lack of margin on bottom.*/
+.navbar {
+  margin-bottom: 0px;
+}
+
+#stickyheader {
+  margin-bottom: 0px;
+}
+
+
+
+/* Stuff to do with Bootstrap's icons. */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.form-horizontal .field_with_errors
+{
+  display: block;
+  margin: 0;
+}
+
+.form-horizontal .field_with_errors:before,
+.form-horizontal .field_with_errors:after
+{
+  display: block;
+}
+
+.form-horizontal .field_with_errors  {
+
+}

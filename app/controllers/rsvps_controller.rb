@@ -1,5 +1,6 @@
 class RsvpsController < ApplicationController
   before_action :set_rsvp, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /rsvps
   # GET /rsvps.json
@@ -15,6 +16,7 @@ class RsvpsController < ApplicationController
   # GET /rsvps/new
   def new
     @rsvp = Rsvp.new
+    @song_request = SongRequest.new
   end
 
   # GET /rsvps/1/edit
@@ -30,9 +32,11 @@ class RsvpsController < ApplicationController
       if @rsvp.save
         format.html { redirect_to @rsvp, notice: 'Rsvp was successfully created.' }
         format.json { render action: 'show', status: :created, location: @rsvp }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -71,4 +75,7 @@ class RsvpsController < ApplicationController
     def rsvp_params
       params.require(:rsvp).permit(:name, :email, :guest, :attending, :comment)
     end
+
+
+
 end

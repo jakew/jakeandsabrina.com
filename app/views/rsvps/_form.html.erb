@@ -1,39 +1,60 @@
-<%= form_for(@rsvp) do |f| %>
-  <% if @rsvp.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rsvp.errors.count, "error") %> prohibited this rsvp from being saved:</h2>
+<%= form_for(@rsvp, :remote => true, :html => {:role => 'form', :class => 'form-horizontal'}) do |f| %>
 
-      <ul>
-      <% @rsvp.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <% if @rsvp.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger col-sm-offset-3 col-sm-9">
+        <h2><%= pluralize(@rsvp.errors.count, "error") %> prohibited this rsvp from being saved:</h2>
+
+         <ul>
+        <% @rsvp.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field form-group">
+      <label class="col-sm-3 control-label" for="rsvp_email">Your name:</label>
+      <div class="col-sm-9">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :guest %><br>
-    <%= f.text_field :guest %>
-  </div>
-  <div class="field">
-    I will be <%= f.label :attending %><br>
-    <%= f.radio_button :attending, "attending" %>
-    I will not be <%= f.label :attending %><br>
-    <%= f.radio_button :attending, "not attending" %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field form-group">
+      <label class="col-sm-3 control-label" for="rsvp_email">Your email:</label>
+      <div class="col-sm-9">
+        <%= f.text_field :email, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :guest, "Your guest's name:", :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :guest, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :attending, "Attendence:", :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <label class="radio">
+          <%= f.radio_button :attending, "attending" %> I/we will be attending
+        </label>
+      </div>
+      <div class="col-sm-offset-3 col-sm-9">
+        <label class="radio">
+          <%= f.radio_button :attending, "not attending" %> I/we will not be attending
+        </label>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :comment, "Comments:", :class => 'col-sm-3 control-label'  %>
+      <div class="col-sm-9">
+        <%= f.text_area :comment, :row => 3, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="actions form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= f.submit "Submit RSVP", :class => 'btn btn-default' %>
+      </div>
+    </div>
+
+<!--   </div> -->
 <% end %>

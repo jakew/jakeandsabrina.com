@@ -1,0 +1,29 @@
+<h1>Listing song_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @song_requests.each do |song_request| %>
+      <tr>
+        <td><%= song_request.artist %></td>
+        <td><%= song_request.title %></td>
+        <td><%= link_to 'Show', song_request %></td>
+        <td><%= link_to 'Edit', edit_song_request_path(song_request) %></td>
+        <td><%= link_to 'Destroy', song_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Song request', new_song_request_path %>

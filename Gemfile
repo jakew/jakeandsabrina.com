@@ -48,3 +48,6 @@ end
 gem 'rails_12factor', group: :production
 
 ruby "2.0.0"
+
+# For Make Pretty
+gem 'bootstrap-sass', '~> 3.0.3.0'

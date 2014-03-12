@@ -1,0 +1,25 @@
+<%= form_for(@song_request, :remote => true, :html => {:role => 'form', :class => 'form-inline'}) do |f| %>
+<!--   <% if @song_request.errors.any? %>
+     <div id="error_explanation">
+      <h2><%= pluralize(@song_request.errors.count, "error") %> prohibited this song_request from being saved:</h2>
+
+      <ul>
+      <% @song_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> -->
+
+  <div class="field form-group">
+    <%= f.label :artist, "Artist", :class =>"sr-only" %>
+    <%= f.text_field :artist, :placeholder => "Artist", :class => 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :title, "Title", :class =>"sr-only"  %>
+    <%= f.text_field :title, :placeholder => "Title", :class => 'form-control' %>
+  </div>
+  <div class="actions form-group">
+    <%= f.submit "Request", :class => "btn btn-default"  %>
+  </div>
+<% end %>

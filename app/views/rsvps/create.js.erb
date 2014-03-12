@@ -1,0 +1,5 @@
+<% if @rsvp.errors.any? %>
+  $("#rsvp").html('<%= escape_javascript(render "form") %>');
+<% else %>
+  $("#rsvp").html('<%= escape_javascript(render "success") %>');
+<% end %>
