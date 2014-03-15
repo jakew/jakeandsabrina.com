@@ -34,8 +34,13 @@ body, h1, h2, h3, h4, h5 {
 
 /* Entire Document */
 body {
-   background: url('greyfloral_@2X.png');
+//   background: url('greyfloral_@2X.png');
    background-attachment:fixed;
+}
+
+h2 {
+  color: $dark_purple;
+  border-bottom: 1px solid $dark_purple;
 }
 
 
